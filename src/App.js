@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+// Components
+import Nav from "./components/Nav";
+import MapUI from "./components/MapUI";
+import AppLogin from "./components/AppLogin";
+import Home from "./components/Home";
+// Styling
+import GlobalStyle from "./components/GlobalStyle";
+// React Router
+import { Routes, Route, useLocation } from "react-router-dom";
+import StartScreen from "./components/StartScreen";
 
 function App() {
+  const location = useLocation();
+  const hideNavComponents = ["/", "/applogin"];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <GlobalStyle />
+      {hideNavComponents.includes(location.pathname) ? null : <Nav />}
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" exact element={<StartScreen />} />
+        <Route path="/applogin" exact element={<AppLogin />} />
+        <Route path="/home" exact element={<Home />} />
+      </Routes>
     </div>
   );
 }
