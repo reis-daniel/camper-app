@@ -1,6 +1,5 @@
 // Components
 import Nav from "./components/Nav";
-import MapUI from "./components/MapUI";
 import AppLogin from "./components/AppLogin";
 import Home from "./components/Home";
 // Styling
