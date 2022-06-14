@@ -73,6 +73,17 @@ const StyledLoginScreen = styled.div`
   svg {
     margin-top: 2rem;
   }
+  h1,
+  p {
+        text-align: center;
+  }
+  h1 {
+      font-size: 2.75rem;
+      font-weight: 900;
+      line-height: 3rem;
+      letter-spacing: 0.5rem;
+      color: black;
+  }
 `;
 const StyledTextContainer = styled.div`
   display: flex;

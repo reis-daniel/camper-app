@@ -143,22 +143,24 @@ const LocationModal = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   z-index: 21;
   background-color: white;
   height: 20%;
   width: 80%;
   border: 1px solid #ff9635;
   border-radius: 0.75rem;
+  text-align: center;
+  padding: 2rem 0;
   h1 {
-    font-size: 1rem;
+    font-size: 1.75rem;
   }
   h2 {
     color: #ff7144;
-    font-size: 0.4rem;
+    font-size: 0.6rem;
   }
   p {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
   }
   :focus {
     background-color: #f4f4f4;

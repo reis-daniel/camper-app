@@ -31,6 +31,17 @@ const StyledSplashScreen = styled.div`
   width: 100vw;
   display: grid;
   place-items: center;
+  h1,
+    p {
+        text-align: center;
+    }
+    h1 {
+        font-size: 2.75rem;
+        font-weight: 900;
+        line-height: 3rem;
+        letter-spacing: 0.5rem;
+        color: black;
+    }
 `;
 
 const StyledContainer = styled.div`
