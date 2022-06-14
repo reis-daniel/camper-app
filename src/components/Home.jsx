@@ -6,45 +6,29 @@ import MapUI from "./MapUI";
 import MapImage from "../assets/img/OutlineMap.svg";
 import styled from "styled-components";
 
-export default function Home() {
+export default function Home({ places }) {
+  const navigate = useNavigate();
   const [showInfo, setShowInfo] = useState(false);
+  const [activePlace, setActivePlace] = useState();
   const [locationInfo, setLocationInfo] = useState({
     id: "",
     type: "",
     description: "",
   });
 
-  const LocationData = [
-    {
-      id: "lc01",
-      type: "Stellplatz/Übernachtung",
-      title: "Weingut Haas",
-      description:
-        "Supporting or descriptive text for card goes here. Nam libero tempore",
-    },
-    {
-      id: "lc02",
-      type: "Stellplatz",
-      title: "Straßenwirtschaft Blume",
-      description:
-        "Supporting or descriptive text for card goes here. Nam libero tempore",
-    },
-    {
-      id: "lc03",
-      type: "Schlafplatz",
-      title: "Naturcamping Mosel",
-      description:
-        "Supporting or descriptive text for card goes here. Nam libero tempore",
-    },
-  ];
-
   const handleLocationInfo = (location) => {
     setLocationInfo({
-      type: LocationData[location - 1].type,
-      title: LocationData[location - 1].title,
-      description: LocationData[location - 1].description,
+      type: places[location - 1].type,
+      title: places[location - 1].title,
+      description: places[location - 1].description,
     });
+    setActivePlace(location);
     setShowInfo(!showInfo);
+  };
+
+  const handleNavToPlaceDetail = () => {
+    console.log("Lets visite the Place Detailpage, shall we?");
+    navigate(`/places/${activePlace}`);
   };
 
   return (
@@ -91,6 +75,7 @@ export default function Home() {
           <LocationModal
             onClick={() => {
               setShowInfo(!showInfo);
+              handleNavToPlaceDetail();
             }}
           >
             <h2>{locationInfo.type}</h2>
@@ -151,9 +136,9 @@ const LocationModal = styled.div`
   border: 1px solid #ff9635;
   border-radius: 0.75rem;
   text-align: center;
-  padding: 2rem 0;
+  padding: 1.5rem 1rem;
   h1 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
   }
   h2 {
     color: #ff7144;
